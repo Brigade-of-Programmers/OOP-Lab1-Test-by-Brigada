@@ -1,11 +1,14 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
 
-namespace project 
-{
+namespace project{
+
     class Program{
+        
         static void Main(){
             
         }
 
     }
+
 }
