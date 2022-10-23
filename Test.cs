@@ -12,12 +12,34 @@ namespace project{
             System.Console.WriteLine("Test has been created.");
         }
 
+        public List<Question> QuestionsArr{
+
+            get{
+                return this.questionsArr;
+            }
+
+            private set{
+            }
+            
+        }
+
+        public string ResultOfTest{
+
+            get{
+                return this.ResultOfTest;
+            }
+
+            private set{
+            }
+            
+        }
+
         public void AddQuestionToTest(){
             Question QuestionInTest = new Question();
             System.Console.WriteLine("Write your question: ");
             QuestionInTest.QuestionText = Console.ReadLine();
             System.Console.WriteLine("Choose the mark for this question: ");
-            QuestionInTest.Mark = Convert.ToInt32(Console.Readline());
+            QuestionInTest.Mark = Convert.ToInt32(Console.ReadLine());
             questionsArr.Add(QuestionInTest);
         }
 
