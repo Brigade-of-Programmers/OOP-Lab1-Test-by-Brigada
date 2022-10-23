@@ -17,11 +17,15 @@ namespace project{
             System.Console.WriteLine("Write your question: ");
             QuestionInTest.QuestionText = Console.ReadLine();
             System.Console.WriteLine("Choose the mark for this question: ");
-            QuestionInTest.Mark = Console.Readline();
+            QuestionInTest.Mark = Convert.ToInt32(Console.Readline());
             questionsArr.Add(QuestionInTest);
         }
 
-        public void DeleteQuestionFromTest(){}
+        public void DeleteQuestionFromTest(){
+            System.Console.WriteLine("Please choose the number of the question you want to delete: ");
+            int num = Convert.ToInt32(Console.ReadLine());
+            questionsArr.RemoveAt(num-1);
+        }
 
         public void ChangePlaceInTest(){}
 
