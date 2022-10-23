@@ -49,10 +49,21 @@ namespace project{
             questionsArr.RemoveAt(num-1);
         }
 
-        public void ChangePlaceInTest(){}
+        public void ChangePlaceInTest(){
+            System.Console.WriteLine("Choose the number of the question which place you want to change: ");
+            int num1 = Convert.ToInt32(Console.ReadLine());
+            System.Console.WriteLine("Choose the number of the second question which place the first question will be changed with: ");
+            int num2 = Convert.ToInt32(Console.ReadLine());
+            Question temp = QuestionsArr[num1-1];
+            QuestionsArr[num1-1] = QuestionsArr[num2-1];
+            QuestionsArr[num2-1] = temp;
+        }
 
-        public void EditQuestionInTest(){}
+        public void EditQuestionInTest(){
 
+            
+
+        }
 
     }
 
