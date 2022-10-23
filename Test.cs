@@ -1,17 +1,25 @@
 using System;
+using System.Collections.Generic;
 
 namespace project{
 
     class Test{
 
-        private Question[] questions;
+        private List<Question> questionsArr = new List<Question>();
         private int resultOfTest;
 
-        public Test (Question[] questions){
+        public Test (){
             System.Console.WriteLine("Test has been created.");
         }
 
-        public void AddQuestionToTest(){}
+        public void AddQuestionToTest(){
+            Question QuestionInTest = new Question();
+            System.Console.WriteLine("Write your question: ");
+            QuestionInTest.QuestionText = Console.ReadLine();
+            System.Console.WriteLine("Choose the mark for this question: ");
+            QuestionInTest.Mark = Console.Readline();
+            questionsArr.Add(QuestionInTest);
+        }
 
         public void DeleteQuestionFromTest(){}
 
