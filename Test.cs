@@ -61,8 +61,25 @@ namespace project{
 
         public void EditQuestionInTest(){
 
-            
-
+            System.Console.WriteLine("Which question you want to change: ");
+            int numOfQ = Convert.ToInt32(Console.ReadLine());
+            System.Console.WriteLine("Do you want to change the text of the question? 1 - yes, 2 - no");
+            int num1 = Convert.ToInt32(Console.ReadLine());
+            if (num1 == 1){
+                System.Console.WriteLine("Write your question: ");
+                QuestionsArr[numOfQ-1].QuestionText = Console.ReadLine();
+            }
+            System.Console.WriteLine("Do you want to change the type of the question? 1 - yes, 2 - no");
+            int num2 = Convert.ToInt32(Console.ReadLine());
+            if (num2 == 1){
+                System.Console.WriteLine("Nothing is changed because types of questions do not exist.");
+            }
+            System.Console.WriteLine("Do you want to change the mark for the question? 1 - yes, 2 - no");
+            int num3 = Convert.ToInt32(Console.ReadLine());
+            if (num3 == 1){
+                System.Console.WriteLine("Choose the mark for this question: ");
+                QuestionsArr[numOfQ-1].Mark = Convert.ToInt32(Console.ReadLine());
+            }
         }
 
     }
