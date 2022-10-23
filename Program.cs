@@ -1,11 +1,13 @@
 using System;
 
-namespace project 
-{
+namespace project{
+
     class Program{
+        
         static void Main(){
             
         }
 
     }
+
 }
