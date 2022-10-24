@@ -8,6 +8,8 @@ namespace project{
         private List<Question> questionsArr = new List<Question>();
         private int resultOfTest;
 
+        private string nameOfTest;
+
         public Test (){
             System.Console.WriteLine("Test has been created.");
         }
@@ -23,13 +25,25 @@ namespace project{
             
         }
 
-        public string ResultOfTest{
+        public int ResultOfTest{
 
             get{
-                return this.ResultOfTest;
+                return this.resultOfTest;
             }
 
             private set{
+            }
+            
+        }
+
+        public string NameOfTest{
+
+            get{
+                return this.nameOfTest;
+            }
+
+            set{
+                this.nameOfTest = value;
             }
             
         }
