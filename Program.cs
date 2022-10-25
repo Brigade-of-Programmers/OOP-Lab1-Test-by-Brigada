@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
 
 namespace TestingApp
 {
-     public class Program
+     class Program
      {
         static void Main()
         {
