@@ -10,8 +10,13 @@ namespace TestingApp
      {
         static void Main()
         {
+            
             Authorization auth = new Authorization();
-            auth.Login();
+
+            Console.WriteLine("For authorization, enter 1, for registration, enter 2");
+            var input = Console.ReadLine();
+            auth.Login(input);
+
             // todo: registration
         }
      }
