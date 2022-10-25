@@ -16,8 +16,6 @@ namespace TestingApp
             Console.WriteLine("For authorization, enter 1, for registration, enter 2");
             var input = Console.ReadLine();
             auth.Login(input);
-
-            // todo: registration
         }
      }
 }
