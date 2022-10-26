@@ -10,8 +10,8 @@ namespace project{
 
         private string nameOfTest;
 
-        public Test (){
-            System.Console.WriteLine("Test has been created.");
+        public Test (string nameOfTest){
+            System.Console.WriteLine("Test <<" + nameOfTest + ">> has been created.");
         }
 
         public List<Question> QuestionsArr{
