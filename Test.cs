@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace project{
 
-    class Test{
+    public class Test{
 
         private List<Question> questionsArr = new List<Question>();
         private int resultOfTest;
