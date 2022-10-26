@@ -1,5 +1,5 @@
 ﻿
-namespace TestingApp
+namespace project
 {
 	public class Users
 	{
@@ -23,13 +23,13 @@ namespace TestingApp
 			new Users("Vladka", "1466"),
 			new Users("Ilya", "1277")
 	   };
-			bool Login_success = false;
-			while (!Login_success)
+			bool login_success = false;
+			while (!login_success)
 			{
 
 				if (input == "1")
 				{
-					Console.WriteLine("Write your username:");
+					Console.WriteLine("Welcome aboard. Write your username:");
 					var username = Console.ReadLine();
 					Console.WriteLine("Enter your password:");
 					var password = Console.ReadLine();
@@ -39,37 +39,39 @@ namespace TestingApp
 					{
 						if (username == user.username && password == user.password)
 						{
-							Console.WriteLine("You have successfully logged in !!!");
+							Console.WriteLine("You have successfully logged in");
 							Console.ReadLine();
-							Login_success = true;
+							login_success = true;
 							break;
 						}
 					}
 
-					if (!Login_success)
+					if (!login_success)
 					{
-						Console.WriteLine("Your username or password is incorect, try again !!!");
+						Console.WriteLine("Your username or password is incorect, try again");
 					}
 
 				}
 				else if (input == "2")
 				{
 
-					Console.WriteLine("Enter your username:");
+					Console.WriteLine("Create your username:");
 					var username = Console.ReadLine();
 
-					Console.WriteLine("Enter your password:");
+					Console.WriteLine("Create your password:");
 					var password = Console.ReadLine();
 
 					Array.Resize(ref arrUsers, arrUsers.Length + 1);
 					arrUsers[arrUsers.Length - 1] = new Users(username, password);
-					Login_success = true;
+					Console.WriteLine("Account created");
+					input = "1";
 				}
 				else
 				{
 					Console.WriteLine("Vrong Login/Password");
 					break;
 				}
+
 			}
 		}
 	}
