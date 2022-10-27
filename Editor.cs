@@ -12,7 +12,7 @@ namespace project
         {
             get
             {
-                return this.TestArr;
+                return this.testArr;
             }
         }
 
@@ -22,7 +22,7 @@ namespace project
 
             foreach (Test item in TestArr)
             {
-                Console.WriteLine(Test.NameOfTest);
+                Console.WriteLine(item.NameOfTest);
             }
         }
 
@@ -50,7 +50,7 @@ namespace project
 
         public void editTestName()
         {
-            Console.WriteLine("Choose the number of the test you want to delete: ");
+            Console.WriteLine("Choose the number of the test you want to edit: ");
             int index = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Choose new test name: ");

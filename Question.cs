@@ -1,34 +1,42 @@
-using System;
+﻿using System;
 
-namespace project{
+namespace project
+{
 
-    public class Question{
+    public class Question
+    {
 
         private string questionText;
         private int mark;
 
-        public string QuestionText{
+        public string QuestionText
+        {
 
-            get{
+            get
+            {
                 return this.questionText;
             }
 
-            set{
+            set
+            {
                 this.questionText = value;
             }
-            
+
         }
 
-        public int Mark{
+        public int Mark
+        {
 
-            get{
+            get
+            {
                 return this.mark;
             }
 
-            set{
+            set
+            {
                 this.mark = value;
             }
-            
+
         }
 
     }

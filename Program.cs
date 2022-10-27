@@ -35,6 +35,16 @@ namespace project
             {
                 System.Console.WriteLine((i + 1) + ". Q:" + test1.QuestionsArr[i].QuestionText + " M:" + test1.QuestionsArr[i].Mark + " \n ");
             }
+
+            Editor editor = new Editor();
+            for (int i = 0; i < 3; i++)
+            {
+                editor.addTest();
+            }
+            editor.printAllTests();
+            editor.deleteTest();
+            editor.editTestName();
+            editor.printAllTests();
         }
     }
 }

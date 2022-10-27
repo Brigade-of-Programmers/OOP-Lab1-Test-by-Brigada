@@ -1,54 +1,67 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace project{
-
-    public class Test{
+namespace project
+{
+    public class Test
+    {
 
         private List<Question> questionsArr = new List<Question>();
         private int resultOfTest;
 
         private string nameOfTest;
 
-        public Test (string nameOfTest){
+        public Test(string nameOfTest)
+        {
             System.Console.WriteLine("Test <<" + nameOfTest + ">> has been created.");
+            NameOfTest = nameOfTest;
         }
 
-        public List<Question> QuestionsArr{
+        public List<Question> QuestionsArr
+        {
 
-            get{
+            get
+            {
                 return this.questionsArr;
             }
 
-            private set{
+            private set
+            {
             }
-            
+
         }
 
-        public int ResultOfTest{
+        public int ResultOfTest
+        {
 
-            get{
+            get
+            {
                 return this.resultOfTest;
             }
 
-            private set{
+            private set
+            {
             }
-            
+
         }
 
-        public string NameOfTest{
+        public string NameOfTest
+        {
 
-            get{
+            get
+            {
                 return this.nameOfTest;
             }
 
-            set{
+            set
+            {
                 this.nameOfTest = value;
             }
-            
+
         }
 
-        public void AddQuestionToTest(){
+        public void AddQuestionToTest()
+        {
             Question QuestionInTest = new Question();
             System.Console.WriteLine("Write your question: ");
             QuestionInTest.QuestionText = Console.ReadLine();
@@ -57,42 +70,48 @@ namespace project{
             questionsArr.Add(QuestionInTest);
         }
 
-        public void DeleteQuestionFromTest(){
+        public void DeleteQuestionFromTest()
+        {
             System.Console.WriteLine("Please choose the number of the question you want to delete: ");
             int num = Convert.ToInt32(Console.ReadLine());
-            questionsArr.RemoveAt(num-1);
+            questionsArr.RemoveAt(num - 1);
         }
 
-        public void ChangePlaceInTest(){
+        public void ChangePlaceInTest()
+        {
             System.Console.WriteLine("Choose the number of the question which place you want to change: ");
             int num1 = Convert.ToInt32(Console.ReadLine());
             System.Console.WriteLine("Choose the number of the second question which place the first question will be changed with: ");
             int num2 = Convert.ToInt32(Console.ReadLine());
-            Question temp = QuestionsArr[num1-1];
-            QuestionsArr[num1-1] = QuestionsArr[num2-1];
-            QuestionsArr[num2-1] = temp;
+            Question temp = QuestionsArr[num1 - 1];
+            QuestionsArr[num1 - 1] = QuestionsArr[num2 - 1];
+            QuestionsArr[num2 - 1] = temp;
         }
 
-        public void EditQuestionInTest(){
+        public void EditQuestionInTest()
+        {
 
             System.Console.WriteLine("Which question you want to change: ");
             int numOfQ = Convert.ToInt32(Console.ReadLine());
             System.Console.WriteLine("Do you want to change the text of the question? 1 - yes, 2 - no");
             int num1 = Convert.ToInt32(Console.ReadLine());
-            if (num1 == 1){
+            if (num1 == 1)
+            {
                 System.Console.WriteLine("Write your question: ");
-                QuestionsArr[numOfQ-1].QuestionText = Console.ReadLine();
+                QuestionsArr[numOfQ - 1].QuestionText = Console.ReadLine();
             }
             System.Console.WriteLine("Do you want to change the type of the question? 1 - yes, 2 - no");
             int num2 = Convert.ToInt32(Console.ReadLine());
-            if (num2 == 1){
+            if (num2 == 1)
+            {
                 System.Console.WriteLine("Nothing is changed because types of questions do not exist.");
             }
             System.Console.WriteLine("Do you want to change the mark for the question? 1 - yes, 2 - no");
             int num3 = Convert.ToInt32(Console.ReadLine());
-            if (num3 == 1){
+            if (num3 == 1)
+            {
                 System.Console.WriteLine("Choose the mark for this question: ");
-                QuestionsArr[numOfQ-1].Mark = Convert.ToInt32(Console.ReadLine());
+                QuestionsArr[numOfQ - 1].Mark = Convert.ToInt32(Console.ReadLine());
             }
         }
 
