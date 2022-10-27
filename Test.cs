@@ -3,15 +3,15 @@ using System.Collections.Generic;
 
 namespace project{
 
-    class Test{
+    public class Test{
 
         private List<Question> questionsArr = new List<Question>();
         private int resultOfTest;
 
         private string nameOfTest;
 
-        public Test (){
-            System.Console.WriteLine("Test has been created.");
+        public Test (string nameOfTest){
+            System.Console.WriteLine("Test <<" + nameOfTest + ">> has been created.");
         }
 
         public List<Question> QuestionsArr{

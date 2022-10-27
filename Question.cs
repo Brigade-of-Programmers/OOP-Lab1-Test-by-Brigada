@@ -2,7 +2,7 @@ using System;
 
 namespace project{
 
-    class Question{
+    public class Question{
 
         private string questionText;
         private int mark;
