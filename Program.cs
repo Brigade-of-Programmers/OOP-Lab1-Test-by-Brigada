@@ -17,7 +17,7 @@ namespace project
             var input = Console.ReadLine();
             auth.Login(input);
 
-            Test test1 = new Test();
+            Test test1 = new Test("Test1");
             test1.AddQuestionToTest();
             test1.AddQuestionToTest();
             test1.AddQuestionToTest();
@@ -43,6 +43,7 @@ namespace project
             }
             editor.printAllTests();
             editor.deleteTest();
+            editor.printAllTests();
             editor.editTestName();
             editor.printAllTests();
         }
