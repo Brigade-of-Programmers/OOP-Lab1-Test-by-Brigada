@@ -8,7 +8,9 @@ namespace project
 {
     class ConformityQuestion : Question
     {
+        private int counter = 0;
         private Dictionary<int, int> correctAnswers = new Dictionary<int, int>();
+        private Dictionary<int, int> userAnswers = new Dictionary<int, int>();
         public int getAnswer(int numberOfQuestion)
         {
             int value;
@@ -23,6 +25,29 @@ namespace project
         public void removeAnswer(int numberOfQuestion)
         {
             correctAnswers.Remove(numberOfQuestion);
+        }
+        
+        public int getFinalMark()
+        {
+            for (int i = 0; i < correctAnswers.Count; i++)
+            {
+                int value;
+                int userValue;
+                correctAnswers.TryGetValue(i, out value);
+                userAnswers.TryGetValue(i, out userValue);
+                if (value == userValue) counter++;
+            }
+            return counter;
+        }
+
+        public void getUserAnswers()
+        {
+            int userAnswer;
+            for (int i = 0; i < correctAnswers.Count; i++)
+            {
+                int userAnswer = Console.ReadLine();
+                userAnswers.Add(i, userAnswer);
+            }
         }
     }
 }

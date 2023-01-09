@@ -21,5 +21,10 @@ namespace project
                 this.textAnswer = value;
             }
         }
+
+        public void getUserAnswer()
+        {
+            TextAnswer = Console.ReadLine();
+        }
     }
 }

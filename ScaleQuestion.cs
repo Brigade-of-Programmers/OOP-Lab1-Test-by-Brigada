@@ -8,6 +8,7 @@ namespace project
 {
     class ScaleQuestion : Question
     {
+        private int userScale;
         private int scale;
         public int Scale
         {
@@ -18,11 +19,16 @@ namespace project
 
             set
             {
-                if (value >= 0 && value <= 5)
+                if (value > 0 && value <= 5)
                 {
                     this.scale = value;
                 }
             }
+        }
+
+        public void getUserAnswer()
+        {
+            Scale = Console.ReadLine();
         }
     }
 }
