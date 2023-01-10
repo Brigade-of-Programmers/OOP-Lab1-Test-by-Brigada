@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace project
 {
-    class ScaleQuestion : Question
+    class ScaleQuestion : IQuestion
     {
+        private string questionText = "";
+        private int mark;
         private int userScale;
         private int scale;
         public int Scale
@@ -26,9 +28,50 @@ namespace project
             }
         }
 
-        public void getUserAnswer()
+        public int UserScale
         {
-            Scale = Console.ReadLine();
+            get
+            {
+                return this.userScale;
+            }
+            set
+            {
+                this.userScale = value;
+            }
+        }
+
+        public string QuestionText
+        {
+            get
+            {
+                return this.questionText;
+            }
+
+            set
+            {
+                this.questionText = value;
+            }
+        }
+
+        public int Mark
+        {
+            get
+            {
+                return this.mark;
+            }
+
+            set
+            {
+                this.mark = value;
+            }
+        }
+
+        public void MarkOfQuestion()
+        {
+            if (userScale != scale)
+            {
+                Mark = 0;
+            }
         }
     }
 }

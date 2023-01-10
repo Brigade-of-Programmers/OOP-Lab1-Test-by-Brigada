@@ -3,13 +3,15 @@ using System.Collections.Generic;
 
 namespace project
 {
-    class OneRightVariantQuestion : Question
+    class OneRightVariantQuestion : IQuestion
     {
-        private List<String> variantAsnwerArr = new List<String>();
-        private String rightVariantAnswer = "";
-        private String userAnswer = "";
+        private string questionText = "";
+        private int mark;
+        private List<string> variantAsnwerArr = new List<string>();
+        private string rightVariantAnswer = "";
+        private string userAnswer = "";
 
-        public List<String> VariantAnswerArr
+        public List<string> VariantAnswerArr
         {
             get
             {
@@ -21,7 +23,7 @@ namespace project
             }
         }
 
-        public String RightVariantAnswer
+        public string RightVariantAnswer
         {
             get
             {
@@ -33,7 +35,7 @@ namespace project
             }
         }
 
-        public String UserAnswer
+        public string UserAnswer
         {
             get
             {
@@ -42,6 +44,40 @@ namespace project
             set
             {
                 this.userAnswer = value;
+            }
+        }
+
+        public string QuestionText
+        {
+            get
+            {
+                return this.questionText;
+            }
+
+            set
+            {
+                this.questionText = value;
+            }
+        }
+
+        public int Mark
+        {
+            get
+            {
+                return this.mark;
+            }
+
+            set
+            {
+                this.mark = value;
+            }
+        }
+
+        public void MarkOfQuestion()
+        {
+            if (userAnswer != rightVariantAnswer)
+            {
+                Mark = 0;
             }
         }
     }

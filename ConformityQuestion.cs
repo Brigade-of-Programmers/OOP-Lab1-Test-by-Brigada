@@ -6,9 +6,37 @@ using System.Threading.Tasks;
 
 namespace project
 {
-    class ConformityQuestion : Question
+    class ConformityQuestion : IQuestion
     {
+        private string questionText = "";
+        private int mark;
         private int counter = 0;
+
+        public string QuestionText
+        {
+            get
+            {
+                return this.questionText;
+            }
+
+            set
+            {
+                this.questionText = value;
+            }
+        }
+
+        public int Mark
+        {
+            get
+            {
+                return this.mark;
+            }
+
+            set
+            {
+                this.mark = value;
+            }
+        }
         private Dictionary<int, int> correctAnswers = new Dictionary<int, int>();
         private Dictionary<int, int> userAnswers = new Dictionary<int, int>();
         public int getAnswer(int numberOfQuestion)
@@ -27,7 +55,7 @@ namespace project
             correctAnswers.Remove(numberOfQuestion);
         }
 
-        public int getFinalMark()
+        public void MarkOfQuestion()
         {
             for (int i = 0; i < correctAnswers.Count; i++)
             {
@@ -37,7 +65,7 @@ namespace project
                 userAnswers.TryGetValue(i, out userValue);
                 if (value == userValue) counter++;
             }
-            return counter;
+            Mark = counter;
         }
 
         public void getUserAnswers()
@@ -45,7 +73,7 @@ namespace project
             int userAnswer;
             for (int i = 0; i < correctAnswers.Count; i++)
             {
-                int userAnswer = Console.ReadLine();
+                userAnswer = Convert.ToInt32(Console.ReadLine());
                 userAnswers.Add(i, userAnswer);
             }
         }
