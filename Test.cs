@@ -62,7 +62,34 @@ namespace project
 
         public void AddQuestionToTest()
         {
-            Question QuestionInTest = new Question();
+            System.Console.WriteLine("Choose the type for this question: /nText answer question;/n2. One right variant question;/n3. Some right variants question;/n4. Conformity question;/n5. No right answer question;/n 6. Scale question;");
+            string type = Console.ReadLine();
+            Question QuestionInTest;
+            switch (type)
+            {
+                case "1":
+                    QuestionInTest = new DetailedAnswer();   
+                    break;
+                case "2":
+                    QuestionInTest = new OneRightVariantQuestion();
+                    break;
+                case "3":
+                    QuestionInTest = new SomeRightVariantsQuestion();
+                    break;
+                case "4":
+                    QuestionInTest = new ConformityQuestion();
+                    break;
+                case "5":
+                    QuestionInTest = new NoRightVariantQuestion();
+                    break;
+                case "6":
+                    QuestionInTest = new ScaleQuestion();
+                    break;
+                default:
+                    QuestionInTest = new DetailedAnswer();  
+                    break;
+            }
+            QuestionsArr.Add(QuestionInTest);
             System.Console.WriteLine("Write your question: ");
             QuestionInTest.QuestionText = Console.ReadLine();
             System.Console.WriteLine("Choose the mark for this question: ");
