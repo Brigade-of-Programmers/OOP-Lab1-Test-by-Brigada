@@ -37,27 +37,15 @@ namespace project
                 this.mark = value;
             }
         }
+        private List<String> variantsQuestions = new List<String>();
+        private List<String> variantsAnswers = new List<String>();
         private Dictionary<int, int> correctAnswers = new Dictionary<int, int>();
         private Dictionary<int, int> userAnswers = new Dictionary<int, int>();
-        public int getAnswer(int numberOfQuestion)
-        {
-            int value;
-            correctAnswers.TryGetValue(numberOfQuestion, out value);
-            return value;
-        }
-        public void addAnswer(int numberOfQuestion, int answer)
-        {
-            correctAnswers.Add(numberOfQuestion, answer);
-        }
-
-        public void removeAnswer(int numberOfQuestion)
-        {
-            correctAnswers.Remove(numberOfQuestion);
-        }
+        int amount;
 
         public void MarkOfQuestion()
         {
-            for (int i = 0; i < correctAnswers.Count; i++)
+            for (int i = 0; i < amount; i++)
             {
                 int value;
                 int userValue;
@@ -68,13 +56,53 @@ namespace project
             Mark = counter;
         }
 
-        public void getUserAnswers()
+        public void GetUserAnswers()
         {
             int userAnswer;
-            for (int i = 0; i < correctAnswers.Count; i++)
+            for (int i = 0; i < amount; i++)
             {
                 userAnswer = Convert.ToInt32(Console.ReadLine());
                 userAnswers.Add(i, userAnswer);
+            }
+        }
+
+        public void EnterCorrectAnswers()
+        {
+            int correctAnswer;
+            for (int i = 0; i < amount; i++)
+            {
+                correctAnswer = Convert.ToInt32(Console.ReadLine());
+                rightAnswers.Add(i, correctAnswer);
+            }
+        }
+
+        public void EnterVariants()
+        {
+            Console.WriteLine("Enter amount of variants: ");
+            amount = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter question variants: ");
+            for (int i = 0; i < amount; i++)
+            {
+                variantsQuestions.Add(Console.ReadLine());
+            }
+            Console.WriteLine("Enter answer variants: ");
+            for (int i = 0; i < amount; i++)
+            {
+                variantsAnswers.Add(Console.ReadLine());
+            }  
+        }
+
+        public void ShowVariants()
+        {
+            Console.WriteLine("Question variants: ");
+            foreach (String current in variantsQuestions)
+            {
+                Console.WriteLine(current);
+            }
+            Console.WriteLine("\nAnswer variants: ");
+            foreach (String current in answersQuestions)
+            {
+                Console.WriteLine(current);
             }
         }
     }
