@@ -39,8 +39,12 @@ namespace project
                 return this.resultOfTest;
             }
 
-            private set
+            set
             {
+                for (int i = 0; i < questionsArr.Count; i ++)
+                {
+                    resultOfTest += questionsArr[i].Mark;
+                }
             }
 
         }
@@ -102,6 +106,30 @@ namespace project
             questionInTest.QuestionText = Console.ReadLine();
             System.Console.WriteLine("Choose the mark for this question: ");
             questionInTest.Mark = Convert.ToInt32(Console.ReadLine());
+            System.Console.WriteLine("Choose right answer for this question: ");
+            switch (type)
+            {
+                case "1":
+                    ((DetailedAnswer)questionInTest).TextAnswer = Console.ReadLine();
+                    break;
+                case "2":
+                    ((OneRightVariantQuestion)questionInTest).RightVariantAnswer = Console.ReadLine();
+                    break;
+                case "3":
+                    //((SomeRightVariantsQuestion)questionInTest).RightVariantsAnswer = Console.ReadLine();
+                    break;
+                case "4":
+                    //
+                    break;
+                case "5":
+                    //((NoRightVariantQuestion)questionInTest).RightVariantAnswer = ((NoRightVariantQuestion)questionInTest).VariantAnswerArr;
+                    break;
+                case "6":
+                    ((ScaleQuestion)questionInTest).Scale = Convert.ToInt32(Console.ReadLine());
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void DeleteQuestionFromTest()
@@ -188,7 +216,7 @@ namespace project
                 QuestionsArr[numOfQ - 1].Mark = Convert.ToInt32(Console.ReadLine());
             }
         }
-
+        
     }
 
 }

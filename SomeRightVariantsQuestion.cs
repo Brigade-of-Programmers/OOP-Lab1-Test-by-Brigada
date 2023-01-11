@@ -23,7 +23,7 @@ namespace project
             }
         }
 
-        public List<String> RightVariantAnswer
+        public List<String> RightVariantsAnswer
         {
             get
             {

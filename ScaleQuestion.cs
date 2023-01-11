@@ -68,7 +68,7 @@ namespace project
 
         public void MarkOfQuestion()
         {
-            if (userScale != scale)
+            if (userScale != Scale)
             {
                 Mark = 0;
             }
