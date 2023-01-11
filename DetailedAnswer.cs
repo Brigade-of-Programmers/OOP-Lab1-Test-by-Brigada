@@ -50,6 +50,18 @@ namespace project
                 this.mark = value;
             }
         }
+
+        public String UserAnswer
+        {
+            get
+            {
+                return userAnswer;
+            }
+            set
+            {
+                this.userAnswer = value;
+            }
+        }
         
         public void MarkOfQuestion()
         {
@@ -59,9 +71,14 @@ namespace project
             }
         }
 
-        public void getUserAnswer()
+        public void ShowVariants()
         {
-            TextAnswer = Console.ReadLine();
+
+        }
+
+        public void GetUserAnswer(string answer, int numOfNoVar)
+        {
+            UserAnswer = answer;
         }
     }
 }

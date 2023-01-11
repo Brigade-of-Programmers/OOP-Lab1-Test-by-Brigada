@@ -7,6 +7,10 @@ namespace project
     {
         public void MarkOfQuestion();
 
+        public void ShowVariants();
+
+        public void GetUserAnswer(string answer);
+
         public abstract string QuestionText
         {get; set;}
 

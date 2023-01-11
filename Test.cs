@@ -41,10 +41,7 @@ namespace project
 
             set
             {
-                for (int i = 0; i < questionsArr.Count; i ++)
-                {
-                    resultOfTest += questionsArr[i].Mark;
-                }
+                this.resultOfTest = value;
             }
 
         }
@@ -66,7 +63,7 @@ namespace project
 
         public void AddQuestionToTest()
         {
-            System.Console.WriteLine("Choose the type for this question: /nText answer question;/n2. One right variant question;/n3. Some right variants question;/n4. Conformity question;/n5. No right answer question;/n 6. Scale question;");
+            System.Console.WriteLine("Choose the type for this question: \n1. Text answer question;\n2. One right variant question;\n3. Some right variants question;\n4. Conformity question;\n5. No right answer question;\n 6. Scale question;");
             string type = Console.ReadLine();
             QuestionCreator creator;
             IQuestion questionInTest;
@@ -97,6 +94,7 @@ namespace project
                     questionInTest = creator.FactoryMethod();
                     break;
                 default:
+                    System.Console.WriteLine("You have automatically chosen text answer question!");
                     creator = new DetailedAnswerCreator();  
                     questionInTest = creator.FactoryMethod();
                     break;
@@ -106,28 +104,82 @@ namespace project
             questionInTest.QuestionText = Console.ReadLine();
             System.Console.WriteLine("Choose the mark for this question: ");
             questionInTest.Mark = Convert.ToInt32(Console.ReadLine());
-            System.Console.WriteLine("Choose right answer for this question: ");
             switch (type)
             {
                 case "1":
-                    ((DetailedAnswer)questionInTest).TextAnswer = Console.ReadLine();
                     break;
                 case "2":
-                    ((OneRightVariantQuestion)questionInTest).RightVariantAnswer = Console.ReadLine();
+                    System.Console.WriteLine("How many answers are you planning to write?");
+                    int numOfOneVar = Convert.ToInt32(Console.ReadLine());
+                    System.Console.WriteLine("Enter variants of answers:");
+                    for(int i = 0; i < numOfOneVar; i ++)
+                    {
+                        System.Console.WriteLine((i+1) + ":");
+                        ((OneRightVariantQuestion)questionInTest).VariantAnswerArr[i] = Console.ReadLine();
+                    }
                     break;
                 case "3":
-                    //((SomeRightVariantsQuestion)questionInTest).RightVariantsAnswer = Console.ReadLine();
+                    System.Console.WriteLine("How many answers are you planning to write?");
+                    int numOfSomeVar = Convert.ToInt32(Console.ReadLine());
+                    System.Console.WriteLine("Enter variants of answers:");
+                    for(int i = 0; i < numOfSomeVar; i ++)
+                    {
+                        System.Console.WriteLine((i+1) + ":");
+                        ((SomeRightVariantsQuestion)questionInTest).VariantAnswerArr[i] = Console.ReadLine();
+                    }
                     break;
                 case "4":
                     //
                     break;
                 case "5":
-                    //((NoRightVariantQuestion)questionInTest).RightVariantAnswer = ((NoRightVariantQuestion)questionInTest).VariantAnswerArr;
+                    System.Console.WriteLine("How many answers are you planning to write?");
+                    int numOfNoVar = Convert.ToInt32(Console.ReadLine());
+                    System.Console.WriteLine("Enter variants of answers:");
+                    for(int i = 0; i < numOfNoVar; i ++)
+                    {
+                        System.Console.WriteLine((i+1) + ":");
+                        ((NoRightVariantQuestion)questionInTest).VariantAnswerArr[i] = Console.ReadLine();
+                    }
                     break;
                 case "6":
+                    Console.WriteLine("Your scale will have variants from 1 to 5.");
+                    break;
+                default:
+                    break;
+            }
+            System.Console.WriteLine("Choose right answer for this question: ");
+            switch (type)
+            {
+                case "1":
+                    System.Console.WriteLine("Choose right answer for this question: ");
+                    ((DetailedAnswer)questionInTest).TextAnswer = Console.ReadLine();
+                    break;
+                case "2":
+                    System.Console.WriteLine("Choose right answer for this question: ");
+                    ((OneRightVariantQuestion)questionInTest).RightVariantAnswer = Console.ReadLine();
+                    break;
+                case "3":
+                    System.Console.WriteLine("Choose right answer for this question: ");
+                    System.Console.WriteLine("How many right answers are you planning?");
+                    int numOfRight = Convert.ToInt32(Console.ReadLine());
+                    for (int i = 0; i < numOfRight; i ++)
+                    {
+                        System.Console.WriteLine("Enter " + (i+1) + " number of right answer: ");
+                        ((SomeRightVariantsQuestion)questionInTest).RightVariantsAnswer[i] = Console.ReadLine();
+                    }
+                    break;
+                case "4":
+                    //
+                    break;
+                case "5":
+                    break;
+                case "6":
+                    System.Console.WriteLine("Choose right answer for this question: ");
                     ((ScaleQuestion)questionInTest).Scale = Convert.ToInt32(Console.ReadLine());
                     break;
                 default:
+                    System.Console.WriteLine("Choose right answer for this question: ");
+                    ((DetailedAnswer)questionInTest).TextAnswer = Console.ReadLine();
                     break;
             }
         }
@@ -166,7 +218,7 @@ namespace project
             int num2 = Convert.ToInt32(Console.ReadLine());
             if (num2 == 1)
             {
-                System.Console.WriteLine("Choose the type for this question: /nText answer question;/n2. One right variant question;/n3. Some right variants question;/n4. Conformity question;/n5. No right answer question;/n 6. Scale question;");
+                System.Console.WriteLine("Choose the type for this question: \n1.Text answer question;\n2. One right variant question;\n3. Some right variants question;\n4. Conformity question;\n5. No right answer question;\n 6. Scale question;");
                 string type = Console.ReadLine();
                 QuestionCreator creator;
                 switch (type)
@@ -216,7 +268,5 @@ namespace project
                 QuestionsArr[numOfQ - 1].Mark = Convert.ToInt32(Console.ReadLine());
             }
         }
-        
     }
-
 }
