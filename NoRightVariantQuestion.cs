@@ -9,19 +9,6 @@ namespace project
         private int mark;
         private List<String> variantAsnwerArr = new List<String>();
         private List<String> userAnswer = new List<String>();
-        private string rightVariantAnswer = "";
-
-        public string RightVariantAnswer
-        {
-            get
-            {
-                return this.rightVariantAnswer;
-            }
-            set
-            {
-                this.rightVariantAnswer = value;
-            }
-        }
         
         public List<String> VariantAnswerArr
         {
