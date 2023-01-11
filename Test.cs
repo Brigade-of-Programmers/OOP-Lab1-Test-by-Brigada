@@ -41,10 +41,7 @@ namespace project
 
             set
             {
-                for (int i = 0; i < questionsArr.Count; i ++)
-                {
-                    resultOfTest += questionsArr[i].Mark;
-                }
+                this.resultOfTest = value;
             }
 
         }
@@ -221,7 +218,7 @@ namespace project
             int num2 = Convert.ToInt32(Console.ReadLine());
             if (num2 == 1)
             {
-                System.Console.WriteLine("Choose the type for this question: /nText answer question;/n2. One right variant question;/n3. Some right variants question;/n4. Conformity question;/n5. No right answer question;/n 6. Scale question;");
+                System.Console.WriteLine("Choose the type for this question: \n1.Text answer question;\n2. One right variant question;\n3. Some right variants question;\n4. Conformity question;\n5. No right answer question;\n 6. Scale question;");
                 string type = Console.ReadLine();
                 QuestionCreator creator;
                 switch (type)
@@ -271,7 +268,5 @@ namespace project
                 QuestionsArr[numOfQ - 1].Mark = Convert.ToInt32(Console.ReadLine());
             }
         }
-
     }
-
 }

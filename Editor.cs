@@ -29,12 +29,30 @@ namespace project
             }
         }
 
-        //public void chooseTest()
-        //{
-        //    Console.WriteLine("Choose the number of test: ");
-        //    int index = Convert.ToInt32(Console.ReadLine());
-        //    TestArr[index].startTest;
-        //}
+          public void TestPassing(int index)
+        {
+            for(int i = 0; i < TestArr[index].QuestionsArr.Count(); i ++)
+            {
+                System.Console.WriteLine((i+1) + ". " + TestArr[index].QuestionsArr[i].QuestionText);;
+                TestArr[index].QuestionsArr[i].ShowVariants();
+                System.Console.WriteLine("Write your answer: ");
+                string answer = Console.ReadLine();
+                TestArr[index].QuestionsArr[i].GetUserAnswer(answer);
+                TestArr[index].QuestionsArr[i].MarkOfQuestion();
+            }
+
+            for (int i = 0; i < TestArr[index].QuestionsArr.Count; i ++)
+            {
+                TestArr[index].ResultOfTest += TestArr[index].QuestionsArr[i].Mark;
+            }
+        }
+
+        public int chooseTest()
+        {
+            Console.WriteLine("Choose the number of test: ");
+            int index = Convert.ToInt32(Console.ReadLine());
+            return index;
+        }
 
         public void addTest()
         {

@@ -80,5 +80,18 @@ namespace project
                 Mark = 0;
             }
         }
+
+        public void ShowVariants()
+        {
+            for(int i = 0; i < variantAsnwerArr.Count; i ++)
+            {
+                System.Console.WriteLine((i+1) + ". " + variantAsnwerArr[i]);
+            }
+        }
+
+        public void GetUserAnswer(string answer)
+        {
+            UserAnswer = answer;
+        }
     }
 }

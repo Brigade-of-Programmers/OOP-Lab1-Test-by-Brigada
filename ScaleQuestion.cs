@@ -73,5 +73,15 @@ namespace project
                 Mark = 0;
             }
         }
+
+        public void ShowVariants()
+        {
+            System.Console.WriteLine("You can choose one number from 1 to 5.");
+        }
+
+        public void GetUserAnswer(string answer)
+        {
+            UserScale = Convert.ToInt32(answer);
+        }
     }
 }

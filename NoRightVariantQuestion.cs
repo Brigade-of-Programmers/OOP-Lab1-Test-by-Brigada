@@ -64,5 +64,21 @@ namespace project
         {
         }
 
+        public void ShowVariants()
+        {
+            for(int i = 0; i < variantAsnwerArr.Count; i ++)
+            {
+                System.Console.WriteLine((i+1) + ". " + variantAsnwerArr[i]);
+            }
+        }
+
+        public void GetUserAnswer(string answer)
+        {
+            for (int i = 0; i < VariantAnswerArr.Count; i ++)
+            {
+                UserAnswer.Add(answer.Split(" ")[i]);
+            }
+        }
+
     }
 }
