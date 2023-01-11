@@ -6,7 +6,7 @@ namespace project
     public class Test
     {
 
-        private List<Question> questionsArr = new List<Question>();
+        private List<IQuestion> questionsArr = new List<IQuestion>();
         private int resultOfTest;
 
         private string nameOfTest;
@@ -17,7 +17,7 @@ namespace project
             NameOfTest = nameOfTest;
         }
 
-        public List<Question> QuestionsArr
+        public List<IQuestion> QuestionsArr
         {
 
             get
@@ -64,37 +64,44 @@ namespace project
         {
             System.Console.WriteLine("Choose the type for this question: /nText answer question;/n2. One right variant question;/n3. Some right variants question;/n4. Conformity question;/n5. No right answer question;/n 6. Scale question;");
             string type = Console.ReadLine();
-            Question QuestionInTest;
+            QuestionCreator creator;
+            IQuestion questionInTest;
             switch (type)
             {
                 case "1":
-                    QuestionInTest = new DetailedAnswer();   
+                    creator = new DetailedAnswerCreator();   
+                    questionInTest = creator.FactoryMethod();
                     break;
                 case "2":
-                    QuestionInTest = new OneRightVariantQuestion();
+                    creator = new OneRightVariantQuestionCreator();
+                    questionInTest = creator.FactoryMethod();
                     break;
                 case "3":
-                    QuestionInTest = new SomeRightVariantsQuestion();
+                    creator = new SomeRightVariantsQuestionCreator();
+                    questionInTest = creator.FactoryMethod();
                     break;
                 case "4":
-                    QuestionInTest = new ConformityQuestion();
+                    creator = new ConformityQuestionCreator();
+                    questionInTest = creator.FactoryMethod();
                     break;
                 case "5":
-                    QuestionInTest = new NoRightVariantQuestion();
+                    creator = new NoRightVariantQuestionCreator();
+                    questionInTest = creator.FactoryMethod();
                     break;
                 case "6":
-                    QuestionInTest = new ScaleQuestion();
+                    creator = new ScaleQuestionCreator();
+                    questionInTest = creator.FactoryMethod();
                     break;
                 default:
-                    QuestionInTest = new DetailedAnswer();  
+                    creator = new DetailedAnswerCreator();  
+                    questionInTest = creator.FactoryMethod();
                     break;
             }
-            QuestionsArr.Add(QuestionInTest);
+            QuestionsArr.Add(questionInTest);
             System.Console.WriteLine("Write your question: ");
-            QuestionInTest.QuestionText = Console.ReadLine();
+            questionInTest.QuestionText = Console.ReadLine();
             System.Console.WriteLine("Choose the mark for this question: ");
-            QuestionInTest.Mark = Convert.ToInt32(Console.ReadLine());
-            questionsArr.Add(QuestionInTest);
+            questionInTest.Mark = Convert.ToInt32(Console.ReadLine());
         }
 
         public void DeleteQuestionFromTest()
@@ -110,7 +117,7 @@ namespace project
             int num1 = Convert.ToInt32(Console.ReadLine());
             System.Console.WriteLine("Choose the number of the second question which place the first question will be changed with: ");
             int num2 = Convert.ToInt32(Console.ReadLine());
-            Question temp = QuestionsArr[num1 - 1];
+            IQuestion temp = QuestionsArr[num1 - 1];
             QuestionsArr[num1 - 1] = QuestionsArr[num2 - 1];
             QuestionsArr[num2 - 1] = temp;
         }
@@ -131,7 +138,47 @@ namespace project
             int num2 = Convert.ToInt32(Console.ReadLine());
             if (num2 == 1)
             {
-                System.Console.WriteLine("Nothing is changed because types of questions do not exist.");
+                System.Console.WriteLine("Choose the type for this question: /nText answer question;/n2. One right variant question;/n3. Some right variants question;/n4. Conformity question;/n5. No right answer question;/n 6. Scale question;");
+                string type = Console.ReadLine();
+                QuestionCreator creator;
+                switch (type)
+                {
+                    case "1":
+                        creator = new DetailedAnswerCreator();   
+                        QuestionsArr[numOfQ-1] = creator.FactoryMethod();
+                        break;
+                    case "2":
+                        creator = new OneRightVariantQuestionCreator();
+                        QuestionsArr[numOfQ-1] = creator.FactoryMethod();
+                        break;
+                    case "3":
+                        creator = new SomeRightVariantsQuestionCreator();
+                        QuestionsArr[numOfQ-1] = creator.FactoryMethod();
+                        break;
+                    case "4":
+                        creator = new ConformityQuestionCreator();
+                        QuestionsArr[numOfQ-1] = creator.FactoryMethod();
+                        break;
+                    case "5":
+                        creator = new NoRightVariantQuestionCreator();
+                        QuestionsArr[numOfQ-1] = creator.FactoryMethod();
+                        break;
+                    case "6":
+                        creator = new ScaleQuestionCreator();
+                        QuestionsArr[numOfQ-1] = creator.FactoryMethod();
+                        break;
+                    default:
+                        creator = new DetailedAnswerCreator();  
+                        QuestionsArr[numOfQ-1] = creator.FactoryMethod();
+                        break;
+                }
+
+                System.Console.WriteLine("Type of you question is " + QuestionsArr[numOfQ-1].GetType());
+
+            }
+            else if (num2 == 2)
+            {
+                System.Console.WriteLine("Nothing is changed.");
             }
             System.Console.WriteLine("Do you want to change the mark for the question? 1 - yes, 2 - no");
             int num3 = Convert.ToInt32(Console.ReadLine());
