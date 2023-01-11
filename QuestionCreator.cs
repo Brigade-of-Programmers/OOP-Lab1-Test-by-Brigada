@@ -6,6 +6,11 @@ namespace project
     abstract class QuestionCreator
     {
         public abstract IQuestion FactoryMethod();
+
+        public IQuestion CreateQuestion()
+        {
+            return FactoryMethod();
+        }
     }
 
     class OneRightVariantQuestionCreator : QuestionCreator
