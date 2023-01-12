@@ -63,7 +63,7 @@ namespace project
 
         public void AddQuestionToTest()
         {
-            System.Console.WriteLine("Choose the type for this question: \n1. Text answer question;\n2. One right variant question;\n3. Some right variants question;\n4. Conformity question;\n5. No right answer question;\n 6. Scale question;");
+            System.Console.WriteLine("Choose the type for this question: \n1. Text answer question;\n2. One right variant question;\n3. Some right variants question;\n4. Conformity question;\n5. No right answer question;\n6. Scale question;");
             string type = Console.ReadLine();
             QuestionCreator creator;
             IQuestion questionInTest;
@@ -112,10 +112,10 @@ namespace project
                     System.Console.WriteLine("How many answers are you planning to write?");
                     int numOfOneVar = Convert.ToInt32(Console.ReadLine());
                     System.Console.WriteLine("Enter variants of answers:");
-                    for(int i = 0; i < numOfOneVar; i ++)
+                    for(int i = 0; i < numOfOneVar; i++)
                     {
                         System.Console.WriteLine((i+1) + ":");
-                        ((OneRightVariantQuestion)questionInTest).VariantAnswerArr[i] = Console.ReadLine();
+                        ((OneRightVariantQuestion)questionInTest).VariantAnswerArr.Add(Console.ReadLine());
                     }
                     break;
                 case "3":
@@ -125,7 +125,7 @@ namespace project
                     for(int i = 0; i < numOfSomeVar; i ++)
                     {
                         System.Console.WriteLine((i+1) + ":");
-                        ((SomeRightVariantsQuestion)questionInTest).VariantAnswerArr[i] = Console.ReadLine();
+                        ((SomeRightVariantsQuestion)questionInTest).VariantAnswerArr.Add(Console.ReadLine());
                     }
                     break;
                 case "4":
@@ -138,7 +138,8 @@ namespace project
                     for(int i = 0; i < numOfNoVar; i ++)
                     {
                         System.Console.WriteLine((i+1) + ":");
-                        ((NoRightVariantQuestion)questionInTest).VariantAnswerArr[i] = Console.ReadLine();
+                        ((NoRightVariantQuestion)questionInTest).VariantAnswerArr.Add(Console.ReadLine());
+                        ;
                     }
                     break;
                 case "6":
@@ -147,7 +148,6 @@ namespace project
                 default:
                     break;
             }
-            System.Console.WriteLine("Choose right answer for this question: ");
             switch (type)
             {
                 case "1":
@@ -165,7 +165,7 @@ namespace project
                     for (int i = 0; i < numOfRight; i ++)
                     {
                         System.Console.WriteLine("Enter " + (i+1) + " number of right answer: ");
-                        ((SomeRightVariantsQuestion)questionInTest).RightVariantsAnswer[i] = Console.ReadLine();
+                        ((SomeRightVariantsQuestion)questionInTest).RightVariantsAnswer.Add(Console.ReadLine());
                     }
                     break;
                 case "4":
