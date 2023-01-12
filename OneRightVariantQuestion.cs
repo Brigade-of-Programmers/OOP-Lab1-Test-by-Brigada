@@ -83,9 +83,9 @@ namespace project
 
         public void ShowVariants()
         {
-            for(int i = 0; i < variantAsnwerArr.Count; i ++)
+            for (int i = 0; i < variantAsnwerArr.Count; i++)
             {
-                System.Console.WriteLine((i+1) + ". " + variantAsnwerArr[i]);
+                System.Console.WriteLine((i + 1) + ". " + variantAsnwerArr[i]);
             }
         }
 

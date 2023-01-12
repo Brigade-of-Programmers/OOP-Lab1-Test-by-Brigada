@@ -56,13 +56,11 @@ namespace project
             Mark = counter;
         }
 
-        public void GetUserAnswers()
+        public void GetUserAnswer(string answer)
         {
-            int userAnswer;
             for (int i = 0; i < amount; i++)
             {
-                userAnswer = Convert.ToInt32(Console.ReadLine());
-                userAnswers.Add(i, userAnswer);
+                userAnswers.Add(i, Convert.ToInt32(answer));
             }
         }
 
@@ -72,7 +70,7 @@ namespace project
             for (int i = 0; i < amount; i++)
             {
                 correctAnswer = Convert.ToInt32(Console.ReadLine());
-                rightAnswers.Add(i, correctAnswer);
+                correctAnswers.Add(i, correctAnswer);
             }
         }
 
@@ -89,7 +87,7 @@ namespace project
             for (int i = 0; i < amount; i++)
             {
                 variantsAnswers.Add(Console.ReadLine());
-            }  
+            }
         }
 
         public void ShowVariants()
@@ -100,7 +98,7 @@ namespace project
                 Console.WriteLine(current);
             }
             Console.WriteLine("\nAnswer variants: ");
-            foreach (String current in answersQuestions)
+            foreach (String current in variantsAnswers)
             {
                 Console.WriteLine(current);
             }

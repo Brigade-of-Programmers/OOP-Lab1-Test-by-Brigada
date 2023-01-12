@@ -35,7 +35,7 @@ namespace project
             if (teacherOrNot == "1")
             {
                 Console.WriteLine("Logged in as teacher.");
-                editor.printAllTests();
+                editor.PrintAllTests();
                 int option;
                 bool toContinue = true;
                 while (toContinue)
@@ -47,19 +47,19 @@ namespace project
                     switch (option)
                     {
                         case 1:
-                            editor.addTest();
+                            editor.AddTest();
                             break;
                         case 2:
-                            editor.deleteTest();
+                            editor.DeleteTest();
                             break;
                         case 3:
-                            editor.editTestName();
+                            editor.EditTestName();
                             break;
                         case 4:
-                            editor.printAllTests();
+                            editor.PrintAllTests();
                             break;
                         case 5:
-                            editor.editTest();
+                            editor.EditTest();
                             break;
                         case 6:
                             toContinue = false;
@@ -72,7 +72,7 @@ namespace project
             if (teacherOrNot == "2")
             {
                 Console.WriteLine("Logged in as student.");
-                editor.printAllTests();
+                editor.PrintAllTests();
                 bool toContinue = true;
                 int option;
                 while (toContinue)

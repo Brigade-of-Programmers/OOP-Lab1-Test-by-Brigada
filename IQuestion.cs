@@ -5,17 +5,17 @@ namespace project
 
     public interface IQuestion
     {
-        public void MarkOfQuestion();
+        void MarkOfQuestion();
 
-        public void ShowVariants();
+        void ShowVariants();
 
-        public void GetUserAnswer(string answer);
+        void GetUserAnswer(string answer);
 
-        public abstract string QuestionText
-        {get; set;}
+        string QuestionText
+        { get; set; }
 
-        public abstract int Mark
-        {get; set;}
+        int Mark
+        { get; set; }
     }
 
 }

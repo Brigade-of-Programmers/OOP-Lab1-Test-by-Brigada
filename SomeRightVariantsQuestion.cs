@@ -46,7 +46,7 @@ namespace project
                 this.userAnswer = value;
             }
         }
-        
+
         public string QuestionText
         {
             get
@@ -75,7 +75,7 @@ namespace project
 
         public void MarkOfQuestion()
         {
-            for(int i = 0; i < userAnswer.Count; i ++)
+            for (int i = 0; i < userAnswer.Count; i++)
             {
                 if (!rightVariantsAnswer.Contains(userAnswer[i]))
                 {
@@ -86,17 +86,17 @@ namespace project
 
         public void ShowVariants()
         {
-            for(int i = 0; i < variantAsnwerArr.Count; i ++)
+            for (int i = 0; i < variantAsnwerArr.Count; i++)
             {
-                System.Console.WriteLine((i+1) + ". " + variantAsnwerArr[i]);
+                System.Console.WriteLine((i + 1) + ". " + variantAsnwerArr[i]);
             }
         }
 
         public void GetUserAnswer(string answer)
         {
-            for (int i = 0; i < VariantAnswerArr.Count; i ++)
+            for (int i = 0; i < VariantAnswerArr.Count; i++)
             {
-                UserAnswer.Add(answer.Split(" ")[i]);
+                UserAnswer.Add(answer);
             }
         }
     }

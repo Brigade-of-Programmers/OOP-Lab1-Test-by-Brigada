@@ -19,7 +19,7 @@ namespace project
             }
         }
 
-        public void printAllTests()
+        public void PrintAllTests()
         {
             Console.WriteLine("List of all tests: ");
             if (TestArr.Count == 0) Console.WriteLine("No tests have been created yet.");
@@ -29,11 +29,11 @@ namespace project
             }
         }
 
-          public void TestPassing(int index)
+        public void TestPassing(int index)
         {
-            for(int i = 0; i < TestArr[index].QuestionsArr.Count(); i ++)
+            for (int i = 0; i < TestArr[index].QuestionsArr.Count(); i++)
             {
-                System.Console.WriteLine((i+1) + ". " + TestArr[index].QuestionsArr[i].QuestionText);;
+                System.Console.WriteLine((i + 1) + ". " + TestArr[index].QuestionsArr[i].QuestionText); ;
                 TestArr[index].QuestionsArr[i].ShowVariants();
                 System.Console.WriteLine("Write your answer: ");
                 string answer = Console.ReadLine();
@@ -41,20 +41,20 @@ namespace project
                 TestArr[index].QuestionsArr[i].MarkOfQuestion();
             }
 
-            for (int i = 0; i < TestArr[index].QuestionsArr.Count; i ++)
+            for (int i = 0; i < TestArr[index].QuestionsArr.Count; i++)
             {
                 TestArr[index].ResultOfTest += TestArr[index].QuestionsArr[i].Mark;
             }
         }
 
-        public int chooseTest()
+        public int ChooseTest()
         {
             Console.WriteLine("Choose the number of test: ");
             int index = Convert.ToInt32(Console.ReadLine());
             return index;
         }
 
-        public void addTest()
+        public void AddTest()
         {
             Console.WriteLine("Choose test name: ");
             string name = Console.ReadLine();
@@ -62,14 +62,14 @@ namespace project
             TestArr.Add(test);
         }
 
-        public void deleteTest()
+        public void DeleteTest()
         {
             Console.WriteLine("Choose the number of the test you want to delete: ");
             int index = Convert.ToInt32(Console.ReadLine());
             TestArr.RemoveAt(index - 1);
         }
 
-        public void editTestName()
+        public void EditTestName()
         {
             Console.WriteLine("Choose the number of the test you want to edit: ");
             int index = Convert.ToInt32(Console.ReadLine());
@@ -80,7 +80,7 @@ namespace project
             TestArr[index - 1].NameOfTest = name;
         }
 
-        public void editTest()
+        public void EditTest()
         {
             Console.WriteLine("Choose the number of the test you want to edit: ");
             int index = Convert.ToInt32(Console.ReadLine());

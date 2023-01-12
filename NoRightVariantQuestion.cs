@@ -9,7 +9,7 @@ namespace project
         private int mark;
         private List<String> variantAsnwerArr = new List<String>();
         private List<String> userAnswer = new List<String>();
-        
+
         public List<String> VariantAnswerArr
         {
             get
@@ -66,17 +66,17 @@ namespace project
 
         public void ShowVariants()
         {
-            for(int i = 0; i < variantAsnwerArr.Count; i ++)
+            for (int i = 0; i < variantAsnwerArr.Count; i++)
             {
-                System.Console.WriteLine((i+1) + ". " + variantAsnwerArr[i]);
+                System.Console.WriteLine((i + 1) + ". " + variantAsnwerArr[i]);
             }
         }
 
         public void GetUserAnswer(string answer)
         {
-            for (int i = 0; i < VariantAnswerArr.Count; i ++)
+            for (int i = 0; i < VariantAnswerArr.Count; i++)
             {
-                UserAnswer.Add(answer.Split(" ")[i]);
+                UserAnswer.Add(answer);
             }
         }
 

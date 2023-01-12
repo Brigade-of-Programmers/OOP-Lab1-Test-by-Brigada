@@ -62,7 +62,7 @@ namespace project
                 this.userAnswer = value;
             }
         }
-        
+
         public void MarkOfQuestion()
         {
             if (userAnswer != textAnswer)
@@ -73,10 +73,10 @@ namespace project
 
         public void ShowVariants()
         {
-
+            return;
         }
 
-        public void GetUserAnswer(string answer, int numOfNoVar)
+        public void GetUserAnswer(string answer)
         {
             UserAnswer = answer;
         }
