@@ -53,7 +53,7 @@ namespace project
                 userAnswers.TryGetValue(i, out userValue);
                 if (value == userValue) counter++;
             }
-            Mark = counter;
+            Mark = Mark * counter;
         }
 
         public void GetUserAnswer(string answer)

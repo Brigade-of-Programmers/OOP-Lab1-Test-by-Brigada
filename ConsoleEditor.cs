@@ -8,7 +8,7 @@ namespace project
 {
     class ConsoleEditor
     {
-        public void runConsoleEditor()
+        public void runConsoleEditor(Editor editor)
         {
             Console.WriteLine("Welcome to the testing application.");
             String regOrNot = "";
@@ -31,7 +31,7 @@ namespace project
                 teacherOrNot = Console.ReadLine();
                 if (teacherOrNot != "1" && teacherOrNot != "2") Console.WriteLine("Invalid input. Try again.");
             }
-            Editor editor = new Editor();
+
             if (teacherOrNot == "1")
             {
                 Console.WriteLine("Logged in as teacher.");
@@ -63,7 +63,7 @@ namespace project
                             break;
                         case 6:
                             toContinue = false;
-                            runConsoleEditor();
+                            runConsoleEditor(editor);
                             break;
                     }
                 }
@@ -84,11 +84,13 @@ namespace project
                     switch (option)
                     {
                         case 1:
-                            //editor.chooseTest();
+                            editor.PrintAllTests();
+                            Console.WriteLine("Choose number of test:");
+                            editor.TestPassing(Convert.ToInt32(Console.ReadLine()) - 1);
                             break;
                         case 2:
                             toContinue = false;
-                            runConsoleEditor();
+                            runConsoleEditor(editor);
                             break;
                     }
 

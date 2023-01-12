@@ -33,7 +33,7 @@ namespace project
         {
             for (int i = 0; i < TestArr[index].QuestionsArr.Count(); i++)
             {
-                System.Console.WriteLine((i + 1) + ". " + TestArr[index].QuestionsArr[i].QuestionText); ;
+                System.Console.WriteLine("Question " + (i + 1) + ". " + TestArr[index].QuestionsArr[i].QuestionText); ;
                 TestArr[index].QuestionsArr[i].ShowVariants();
                 System.Console.WriteLine("Write your answer: ");
                 string answer = Console.ReadLine();
@@ -45,6 +45,9 @@ namespace project
             {
                 TestArr[index].ResultOfTest += TestArr[index].QuestionsArr[i].Mark;
             }
+
+            Console.WriteLine("Your mark is: " + TestArr[index].ResultOfTest);
+            TestArr[index].ResultOfTest = 0;
         }
 
         public int ChooseTest()
