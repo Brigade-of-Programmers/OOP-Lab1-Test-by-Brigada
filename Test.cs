@@ -129,7 +129,7 @@ namespace project
                     }
                     break;
                 case "4":
-                    //
+                    ((ConformityQuestion)questionInTest).EnterVariants();
                     break;
                 case "5":
                     System.Console.WriteLine("How many answers are you planning to write?");
@@ -167,9 +167,9 @@ namespace project
                     break;
                 case "4":
                     System.Console.WriteLine("Choose right answer for this question: ");
-                    ((ConformityQuestion)questionInTest).EnterVariants();
                     System.Console.WriteLine("How many right answers are you planning?");
                     int amount = Convert.ToInt32(Console.ReadLine());
+                    System.Console.WriteLine("Enter right answers: ");
                     ((ConformityQuestion)questionInTest).EnterCorrectAnswers(amount);
                     break;
                 case "5":
