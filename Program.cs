@@ -48,8 +48,9 @@ namespace project
             // editor.printAllTests();
 
             ConsoleEditor consoleEditor = new ConsoleEditor();
+            Editor editor = new Editor();
 
-            consoleEditor.runConsoleEditor();
+            consoleEditor.runConsoleEditor(editor);
         }
     }
 }

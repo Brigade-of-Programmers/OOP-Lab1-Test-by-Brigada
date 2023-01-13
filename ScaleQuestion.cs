@@ -10,9 +10,9 @@ namespace project
     {
         private string questionText = "";
         private int mark;
-        private int userScale;
-        private int scale;
-        public int Scale
+        private List<String> userScale = new List<string>();
+        private string scale;
+        public string Scale
         {
             get
             {
@@ -21,14 +21,14 @@ namespace project
 
             set
             {
-                if (value > 0 && value <= 5)
+                if (Convert.ToInt32(value) > 0 && Convert.ToInt32(value) <= 5)
                 {
                     this.scale = value;
                 }
             }
         }
 
-        public int UserScale
+        public List<String> UserScale
         {
             get
             {
@@ -68,9 +68,12 @@ namespace project
 
         public void MarkOfQuestion()
         {
-            if (userScale != Scale)
+            for (int i = 0; i < UserScale.Count; i++)
             {
-                Mark = 0;
+                if (UserScale[i] != Scale)
+                {
+                    Mark = 0;
+                }
             }
         }
 
@@ -79,9 +82,9 @@ namespace project
             System.Console.WriteLine("You can choose one number from 1 to 5.");
         }
 
-        public void GetUserAnswer(string answer)
+        public void GetUserAnswer(List<String> answer)
         {
-            UserScale = Convert.ToInt32(answer);
+            UserScale = answer;
         }
     }
 }

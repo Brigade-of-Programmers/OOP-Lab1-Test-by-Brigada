@@ -9,7 +9,7 @@ namespace project
 
         void ShowVariants();
 
-        void GetUserAnswer(string answer);
+        void GetUserAnswer(List<string> answer);
 
         string QuestionText
         { get; set; }

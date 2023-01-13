@@ -72,12 +72,9 @@ namespace project
             }
         }
 
-        public void GetUserAnswer(string answer)
+        public void GetUserAnswer(List<string> answer)
         {
-            for (int i = 0; i < VariantAnswerArr.Count; i++)
-            {
-                UserAnswer.Add(answer);
-            }
+            UserAnswer = answer;
         }
 
     }
