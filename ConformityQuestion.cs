@@ -56,15 +56,15 @@ namespace project
             Mark = Mark * counter;
         }
 
-        public void GetUserAnswer(string answer)
+        public void GetUserAnswer(List<String> answer)
         {
             for (int i = 0; i < amount; i++)
             {
-                userAnswers.Add(i, Convert.ToInt32(answer));
+                userAnswers.Add(i, Convert.ToInt32(answer[i]));
             }
         }
 
-        public void EnterCorrectAnswers()
+        public void EnterCorrectAnswers(int amount)
         {
             int correctAnswer;
             for (int i = 0; i < amount; i++)

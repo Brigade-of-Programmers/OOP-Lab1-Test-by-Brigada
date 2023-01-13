@@ -9,7 +9,8 @@ namespace project
         private int mark;
         private List<string> variantAsnwerArr = new List<string>();
         private string rightVariantAnswer = "";
-        private string userAnswer = "";
+        private List<String> userAnswer = new List<String>();
+
 
         public List<string> VariantAnswerArr
         {
@@ -35,7 +36,7 @@ namespace project
             }
         }
 
-        public string UserAnswer
+        public List<String> UserAnswer
         {
             get
             {
@@ -75,9 +76,12 @@ namespace project
 
         public void MarkOfQuestion()
         {
-            if (userAnswer != rightVariantAnswer)
+            for(int i = 0; i < UserAnswer.Count; i++)
             {
-                Mark = 0;
+                if (userAnswer[i] != rightVariantAnswer)
+                {
+                    Mark = 0;
+                }
             }
         }
 
@@ -89,7 +93,7 @@ namespace project
             }
         }
 
-        public void GetUserAnswer(string answer)
+        public void GetUserAnswer(List<String> answer)
         {
             UserAnswer = answer;
         }

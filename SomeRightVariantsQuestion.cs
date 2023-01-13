@@ -84,6 +84,16 @@ namespace project
             }
         }
 
+        public void EnterCorrectAnswers(int amount)
+        {
+            string correctAnswer;
+            for (int i = 0; i < amount; i++)
+            {
+                correctAnswer = Console.ReadLine();
+                rightVariantsAnswer.Add(correctAnswer);
+            }
+        }
+
         public void ShowVariants()
         {
             for (int i = 0; i < variantAsnwerArr.Count; i++)
@@ -92,11 +102,11 @@ namespace project
             }
         }
 
-        public void GetUserAnswer(string answer)
+        public void GetUserAnswer(List<string> answer)
         {
-            for (int i = 0; i < VariantAnswerArr.Count; i++)
+            for (int i = 0; i < answer.Count; i++)
             {
-                UserAnswer.Add(answer);
+                UserAnswer.Add(answer[i]);
             }
         }
     }

@@ -11,7 +11,7 @@ namespace project
         private string questionText = "";
         private int mark;
         private String textAnswer = "";
-        private string userAnswer = "";
+        private List<string> userAnswer = new List<string>();
 
         public String TextAnswer
         {
@@ -51,7 +51,7 @@ namespace project
             }
         }
 
-        public String UserAnswer
+        public List<string> UserAnswer
         {
             get
             {
@@ -65,9 +65,12 @@ namespace project
 
         public void MarkOfQuestion()
         {
-            if (userAnswer != textAnswer)
+            for (int i = 0; i < UserAnswer.Count; i++)
             {
-                Mark = 0;
+                if (userAnswer[i] != textAnswer)
+                {
+                    Mark = 0;
+                }
             }
         }
 
@@ -76,9 +79,9 @@ namespace project
             return;
         }
 
-        public void GetUserAnswer(string answer)
+        public void GetUserAnswer(List<string> answer)
         {
-            UserAnswer = answer;
+            UserAnswer= answer;
         }
     }
 }

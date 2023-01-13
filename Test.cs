@@ -162,20 +162,21 @@ namespace project
                     System.Console.WriteLine("Choose right answer for this question: ");
                     System.Console.WriteLine("How many right answers are you planning?");
                     int numOfRight = Convert.ToInt32(Console.ReadLine());
-                    for (int i = 0; i < numOfRight; i ++)
-                    {
-                        System.Console.WriteLine("Enter " + (i+1) + " number of right answer: ");
-                        ((SomeRightVariantsQuestion)questionInTest).RightVariantsAnswer.Add(Console.ReadLine());
-                    }
+                    System.Console.WriteLine("Enter right answers: ");
+                    ((SomeRightVariantsQuestion)questionInTest).EnterCorrectAnswers(numOfRight);
                     break;
                 case "4":
-                    //
+                    System.Console.WriteLine("Choose right answer for this question: ");
+                    ((ConformityQuestion)questionInTest).EnterVariants();
+                    System.Console.WriteLine("How many right answers are you planning?");
+                    int amount = Convert.ToInt32(Console.ReadLine());
+                    ((ConformityQuestion)questionInTest).EnterCorrectAnswers(amount);
                     break;
                 case "5":
                     break;
                 case "6":
                     System.Console.WriteLine("Choose right answer for this question: ");
-                    ((ScaleQuestion)questionInTest).Scale = Convert.ToInt32(Console.ReadLine());
+                    ((ScaleQuestion)questionInTest).Scale = Console.ReadLine();
                     break;
                 default:
                     System.Console.WriteLine("Choose right answer for this question: ");
