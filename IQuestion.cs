@@ -13,7 +13,11 @@ namespace project
 
         void ShowVariants();
 
-        void GetUserAnswer(List<string> answer);
+        void EnterVariants();
+        
+        void EnterCorrectAnswers();
+
+        void GetUserAnswer();
 
         string QuestionText
         { get; set; }

@@ -11,7 +11,7 @@ namespace project
         private string questionText = "";
         private int mark;
         private String textAnswer = "";
-        private List<string> userAnswer = new List<string>();
+        private string userAnswer = "";
 
         public String TextAnswer
         {
@@ -51,7 +51,7 @@ namespace project
             }
         }
 
-        public List<string> UserAnswer
+        public string UserAnswer
         {
             get
             {
@@ -65,13 +65,21 @@ namespace project
 
         public void MarkOfQuestion()
         {
-            for (int i = 0; i < UserAnswer.Count; i++)
+            if (UserAnswer != TextAnswer)
             {
-                if (userAnswer[i] != textAnswer)
-                {
-                    Mark = 0;
-                }
+                Mark = 0;
             }
+        }
+
+        public void EnterVariants()
+        {
+            return;
+        }
+
+        public void EnterCorrectAnswers()
+        {
+            System.Console.WriteLine("Choose right answer for this question: ");
+            TextAnswer = Console.ReadLine();
         }
 
         public void ShowVariants()
@@ -79,9 +87,10 @@ namespace project
             return;
         }
 
-        public void GetUserAnswer(List<string> answer)
+        public void GetUserAnswer()
         {
-            UserAnswer= answer;
+            System.Console.WriteLine("Enter your answer: ");
+            UserAnswer = Console.ReadLine();
         }
     }
 }
