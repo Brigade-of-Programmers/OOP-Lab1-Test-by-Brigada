@@ -8,7 +8,7 @@ namespace project
         private string questionText = "";
         private int mark;
         private List<String> variantAsnwerArr = new List<String>();
-        private List<String> userAnswer = new List<String>();
+        private List<int> userAnswer = new List<int>();
 
         public List<String> VariantAnswerArr
         {
@@ -22,7 +22,7 @@ namespace project
             }
         }
 
-        public List<String> UserAnswer
+        public List<int> UserAnswer
         {
             get
             {
@@ -60,8 +60,33 @@ namespace project
             }
         }
 
+        public void EnterVariants()
+        {
+            System.Console.WriteLine("Enter amount of variants: ");
+            int amount = Convert.ToInt32(Console.ReadLine());
+            System.Console.WriteLine("Enter variants of answers:");
+            for(int i = 0; i < amount; i ++)
+            {
+                System.Console.WriteLine((i+1) + ":");
+                VariantAnswerArr.Add(Console.ReadLine());
+            }
+        }
+
+        public void EnterCorrectAnswers()
+        {
+            return;
+        }
+
         public void MarkOfQuestion()
         {
+            for (int i = 0; i < UserAnswer.Count; i++)
+            {
+                if(UserAnswer[i] > VariantAnswerArr.Count || UserAnswer[i] < 1)
+                {
+                    Mark = Mark - Mark/VariantAnswerArr.Count;
+                }
+            }
+            return;
         }
 
         public void ShowVariants()
@@ -72,9 +97,18 @@ namespace project
             }
         }
 
-        public void GetUserAnswer(List<string> answer)
+        public void GetUserAnswer()
         {
-            UserAnswer = answer;
+            System.Console.WriteLine("How many answers are you going to write?");
+            int answerNumi;
+            int amountOfAnsw = Convert.ToInt32(Console.ReadLine());
+            System.Console.WriteLine("Use only integers!");
+            for (int i = 0; i < amountOfAnsw; i++)
+            {
+                System.Console.WriteLine((i+1) + ":");
+                answerNumi = Convert.ToInt32(Console.ReadLine());
+                UserAnswer.Add(answerNumi);
+            }
         }
 
     }

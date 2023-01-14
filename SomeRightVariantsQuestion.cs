@@ -8,8 +8,8 @@ namespace project
         private string questionText = "";
         private int mark;
         private List<String> variantAsnwerArr = new List<String>();
-        private List<String> rightVariantsAnswer = new List<String>();
-        private List<String> userAnswer = new List<String>();
+        private List<int> rightVariantsAnswer = new List<int>();
+        private List<int> userAnswer = new List<int>();
 
         public List<String> VariantAnswerArr
         {
@@ -23,7 +23,7 @@ namespace project
             }
         }
 
-        public List<String> RightVariantsAnswer
+        public List<int> RightVariantsAnswer
         {
             get
             {
@@ -35,7 +35,7 @@ namespace project
             }
         }
 
-        public List<String> UserAnswer
+        public List<int> UserAnswer
         {
             get
             {
@@ -75,22 +75,38 @@ namespace project
 
         public void MarkOfQuestion()
         {
+            int counter = 0;
             for (int i = 0; i < userAnswer.Count; i++)
             {
-                if (!rightVariantsAnswer.Contains(userAnswer[i]))
+                if (rightVariantsAnswer.Contains(userAnswer[i]))
                 {
-                    Mark--;
+                    counter += Mark/rightVariantsAnswer.Count;
                 }
+            }
+            Mark = counter;
+        }
+
+        public void EnterVariants()
+        {
+            System.Console.WriteLine("Enter amount of variants: ");
+            int amount = Convert.ToInt32(Console.ReadLine());
+            System.Console.WriteLine("Enter variants of answers: ");
+            for(int i = 0; i < amount; i ++)
+            {
+                System.Console.WriteLine((i+1) + ":");
+                VariantAnswerArr.Add(Console.ReadLine());
             }
         }
 
-        public void EnterCorrectAnswers(int amount)
+        public void EnterCorrectAnswers()
         {
-            string correctAnswer;
+            System.Console.WriteLine("How many right answers are you planning?");
+            int amount = Convert.ToInt32(Console.ReadLine());
+            System.Console.WriteLine("Enter right answers: ");
             for (int i = 0; i < amount; i++)
             {
-                correctAnswer = Console.ReadLine();
-                rightVariantsAnswer.Add(correctAnswer);
+                System.Console.WriteLine((i+1) + ":");
+                rightVariantsAnswer.Add(Convert.ToInt32(Console.ReadLine()));
             }
         }
 
@@ -102,11 +118,16 @@ namespace project
             }
         }
 
-        public void GetUserAnswer(List<string> answer)
+        public void GetUserAnswer()
         {
-            for (int i = 0; i < answer.Count; i++)
+            System.Console.WriteLine("How many answers are you planning?");
+            int amount = Convert.ToInt32(Console.ReadLine());
+            System.Console.WriteLine("Use only integers!");
+            System.Console.WriteLine("Enter your answers: ");
+            for (int i = 0; i < amount; i++)
             {
-                UserAnswer.Add(answer[i]);
+                System.Console.WriteLine((i+1) + ": ");
+                UserAnswer.Add(Convert.ToInt32(Console.ReadLine()));
             }
         }
     }

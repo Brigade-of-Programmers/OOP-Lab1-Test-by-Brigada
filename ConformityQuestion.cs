@@ -37,6 +37,7 @@ namespace project
                 this.mark = value;
             }
         }
+
         private List<String> variantsQuestions = new List<String>();
         private List<String> variantsAnswers = new List<String>();
         private Dictionary<int, int> correctAnswers = new Dictionary<int, int>();
@@ -56,16 +57,25 @@ namespace project
             Mark = Mark * counter;
         }
 
-        public void GetUserAnswer(List<String> answer)
+        public void GetUserAnswer()
         {
-            for (int i = 0; i < amount; i++)
+            System.Console.WriteLine("How many answers are you going to write?");
+            int answerNumi;
+            int amountOfAnsw = Convert.ToInt32(Console.ReadLine());
+            System.Console.WriteLine("Use only integers!");
+            for (int i = 0; i < amountOfAnsw; i++)
             {
-                userAnswers.Add(i, Convert.ToInt32(answer[i]));
+                System.Console.WriteLine((i+1) + ":");
+                answerNumi = Convert.ToInt32(Console.ReadLine());
+                userAnswers.Add(i, answerNumi);
             }
         }
 
-        public void EnterCorrectAnswers(int amount)
+        public void EnterCorrectAnswers()
         {
+            System.Console.WriteLine("How many right answers are you planning?");
+            int amount = Convert.ToInt32(Console.ReadLine());
+            System.Console.WriteLine("Enter right answers: ");
             int correctAnswer;
             for (int i = 0; i < amount; i++)
             {

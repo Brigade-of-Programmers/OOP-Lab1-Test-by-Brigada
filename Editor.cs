@@ -33,19 +33,9 @@ namespace project
         {
             for (int i = 0; i < TestArr[index].QuestionsArr.Count(); i++)
             {
-                List<String> answer = new List<string>();
                 System.Console.WriteLine("Question " + (i + 1) + ". " + TestArr[index].QuestionsArr[i].QuestionText); ;
                 TestArr[index].QuestionsArr[i].ShowVariants();
-                System.Console.WriteLine("How many answers are you going to write?");
-                string answerNumi = "";
-                int amountOfAnsw = Convert.ToInt32(Console.ReadLine());
-                System.Console.WriteLine("Write your answer: ");
-                for (int l = 0; l < amountOfAnsw; l++)
-                {
-                    answerNumi = Console.ReadLine();
-                    answer.Add(answerNumi);
-                }
-                TestArr[index].QuestionsArr[i].GetUserAnswer(answer);
+                TestArr[index].QuestionsArr[i].GetUserAnswer();
                 TestArr[index].QuestionsArr[i].MarkOfQuestion();
             }
 

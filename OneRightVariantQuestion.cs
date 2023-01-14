@@ -8,8 +8,8 @@ namespace project
         private string questionText = "";
         private int mark;
         private List<string> variantAsnwerArr = new List<string>();
-        private string rightVariantAnswer = "";
-        private List<String> userAnswer = new List<String>();
+        private int rightVariantAnswer;
+        private int userAnswer;
 
 
         public List<string> VariantAnswerArr
@@ -24,7 +24,7 @@ namespace project
             }
         }
 
-        public string RightVariantAnswer
+        public int RightVariantAnswer
         {
             get
             {
@@ -36,7 +36,7 @@ namespace project
             }
         }
 
-        public List<String> UserAnswer
+        public int UserAnswer
         {
             get
             {
@@ -76,13 +76,28 @@ namespace project
 
         public void MarkOfQuestion()
         {
-            for(int i = 0; i < UserAnswer.Count; i++)
+            if (UserAnswer != RightVariantAnswer)
             {
-                if (userAnswer[i] != rightVariantAnswer)
-                {
-                    Mark = 0;
-                }
+                Mark = 0;
             }
+        }
+
+        public void EnterVariants()
+        {
+            System.Console.WriteLine("Enter amount of variants: ");
+            int amount = Convert.ToInt32(Console.ReadLine());
+            System.Console.WriteLine("Enter variants of answers:");
+            for(int i = 0; i < amount; i++)
+            {
+                System.Console.WriteLine((i+1) + ":");
+                VariantAnswerArr.Add(Console.ReadLine());
+            }
+        }
+
+        public void EnterCorrectAnswers()
+        {
+            System.Console.WriteLine("Choose right answer for this question: ");
+            RightVariantAnswer = Convert.ToInt32(Console.ReadLine());
         }
 
         public void ShowVariants()
@@ -93,9 +108,11 @@ namespace project
             }
         }
 
-        public void GetUserAnswer(List<String> answer)
+        public void GetUserAnswer()
         {
-            UserAnswer = answer;
+            System.Console.WriteLine("Use only integers!");
+            System.Console.WriteLine("Enter your answer: ");
+            UserAnswer = Convert.ToInt32(Console.ReadLine()); 
         }
     }
 }
