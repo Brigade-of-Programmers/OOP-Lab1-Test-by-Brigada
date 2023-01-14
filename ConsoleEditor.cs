@@ -14,8 +14,8 @@ namespace project
             String regOrNot = "";
             while (regOrNot != "1" && regOrNot != "2")
             {
-                Console.WriteLine("New one? Press 2");
                 Console.WriteLine("Have an account? Press 1");
+                Console.WriteLine("New one? Press 2");
                 regOrNot = Console.ReadLine();
                 if (regOrNot != "1" && regOrNot != "2") Console.WriteLine("Invalid input. Try again.");
             }
