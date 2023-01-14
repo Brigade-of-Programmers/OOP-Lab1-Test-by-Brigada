@@ -11,6 +11,11 @@ namespace project
         private string questionText = "";
         private int mark;
         private int counter = 0;
+        private List<String> variantsQuestions = new List<String>();
+        private List<String> variantsAnswers = new List<String>();
+        private Dictionary<int, int> correctAnswers = new Dictionary<int, int>();
+        private Dictionary<int, int> userAnswers = new Dictionary<int, int>();
+        int amount;
 
         public string QuestionText
         {
@@ -38,11 +43,65 @@ namespace project
             }
         }
 
-        private List<String> variantsQuestions = new List<String>();
-        private List<String> variantsAnswers = new List<String>();
-        private Dictionary<int, int> correctAnswers = new Dictionary<int, int>();
-        private Dictionary<int, int> userAnswers = new Dictionary<int, int>();
-        int amount;
+        public List<String> VariantsQuestions
+        {
+            get
+            {
+                return this.variantsQuestions;
+            }
+            set
+            {
+                this.variantsQuestions = value;
+            }
+        }
+
+        public List<String> VariantsAnswers
+        {
+            get
+            {
+                return this.variantsAnswers;
+            }
+            set
+            {
+                this.variantsAnswers = value;
+            }
+        }
+
+        public Dictionary<int, int> CorrectAnswers
+        {
+            get
+            {
+                return this.correctAnswers;
+            }
+        }
+
+        public Dictionary<int, int> UserAnswers
+        {
+            get
+            {
+                return this.userAnswers;
+            }
+        }
+
+        public int Counter
+        {
+            get
+            {
+                return this.counter;
+            }
+        }
+
+        public int Amount
+        {
+            get
+            {
+                return this.amount;
+            }
+            set
+            {
+                this.amount = value;
+            }
+        }
 
         public void MarkOfQuestion()
         {
@@ -50,11 +109,11 @@ namespace project
             {
                 int value;
                 int userValue;
-                correctAnswers.TryGetValue(i, out value);
-                userAnswers.TryGetValue(i, out userValue);
+                CorrectAnswers.TryGetValue(i, out value);
+                UserAnswers.TryGetValue(i, out userValue);
                 if (value == userValue) counter++;
             }
-            Mark = Mark * counter;
+            Mark = Mark / counter;
         }
 
         public void GetUserAnswer()
@@ -65,9 +124,9 @@ namespace project
             System.Console.WriteLine("Use only integers!");
             for (int i = 0; i < amountOfAnsw; i++)
             {
-                System.Console.WriteLine((i+1) + ":");
+                System.Console.WriteLine((i + 1) + ":");
                 answerNumi = Convert.ToInt32(Console.ReadLine());
-                userAnswers.Add(i, answerNumi);
+                UserAnswers.Add(i, answerNumi);
             }
         }
 
@@ -80,37 +139,41 @@ namespace project
             for (int i = 0; i < amount; i++)
             {
                 correctAnswer = Convert.ToInt32(Console.ReadLine());
-                correctAnswers.Add(i, correctAnswer);
+                CorrectAnswers.Add(i, correctAnswer);
             }
         }
 
         public void EnterVariants()
         {
             Console.WriteLine("Enter amount of variants: ");
-            amount = Convert.ToInt32(Console.ReadLine());
+            Amount = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter question variants: ");
-            for (int i = 0; i < amount; i++)
+            for (int i = 0; i < Amount; i++)
             {
-                variantsQuestions.Add(Console.ReadLine());
+                VariantsQuestions.Add(Console.ReadLine());
             }
             Console.WriteLine("Enter answer variants: ");
-            for (int i = 0; i < amount; i++)
+            for (int i = 0; i < Amount; i++)
             {
-                variantsAnswers.Add(Console.ReadLine());
+                VariantsAnswers.Add(Console.ReadLine());
             }
         }
 
         public void ShowVariants()
         {
+            int i = 1;
             Console.WriteLine("Question variants: ");
-            foreach (String current in variantsQuestions)
+            foreach (String current in VariantsQuestions)
             {
-                Console.WriteLine(current);
+                Console.WriteLine(i + ". " + current);
+                i++;
             }
+            i = 1;
             Console.WriteLine("\nAnswer variants: ");
-            foreach (String current in variantsAnswers)
+            foreach (String current in VariantsAnswers)
             {
-                Console.WriteLine(current);
+                Console.WriteLine(i + ". " + current);
+                i++;
             }
         }
     }
